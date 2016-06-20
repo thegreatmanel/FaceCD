@@ -1,0 +1,5 @@
+debug=true
+oauth.appId=1602463666748241
+oauth.appSecret=cefb5f40109c7ce4ebf0fe790b5f616e
+oauth.accessToken=EAAWxbqWfO1EBAKwnofnp6RMZAncjpMhYaUF7wU1TUWYQINu0P7Oai6L6Fqw0TpZC3trTaYjRf5hTfZBq4uXHcfyYrIX1Hf89Y2RZCM2J4qHJrUZCgSkXOnOe8SXVWoq10P2HFcMPjZByOsbZBeyJxrRoLaQ8ZCmbdDZB8QK73BXwqEQZDZD
+oauth.permissions=email,publish_stream,...

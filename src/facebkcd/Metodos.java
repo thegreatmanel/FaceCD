@@ -36,25 +36,41 @@ public class Metodos {
         FacebookFactory ff = new FacebookFactory(cb.build());
         facebook = ff.getInstance();
     }
-
+/**
+ * método para ver el usuario con el que tienes iniciado
+ * @throws FacebookException 
+ */
     public void miUsuario() throws FacebookException {
         User user = facebook.getMe();
         JOptionPane.showMessageDialog(null, "Mi nombre: \n" + user.getName());
     }
-
+/**
+ * método para buscar persona
+ * @param nombre de la persona a buscar
+ * @throws FacebookException 
+ */
     public void buscarPersoa(String nombre) throws FacebookException {
         String ac = "";
         ResponseList<User> results = facebook.searchUsers(nombre);
-        //System.out.println("Busqueda de personas con nombre :" + nombre);
         for (int i = 0; i < results.size(); i++) {
             ac = ac + (results.get(i).getName()) + "\n";
         }
         JOptionPane.showMessageDialog(null, "Busqueda de personas con nombre:\n" + nombre + "\n" + ac);
     }
-
+/**
+ * método para publicar un estado
+ * @param comentario que quieres publicar
+ * @throws FacebookException 
+ */
     public void publicarEstado(String comentario) throws FacebookException {
         facebook.postStatusMessage(comentario);
     }
+    /**
+     * método para subir una foto
+     * @param rutaImagen o url de la imagen que quieres subir
+     * @throws MalformedURLException
+     * @throws FacebookException 
+     */
 
     public void publicarFoto(String rutaImagen) throws MalformedURLException, FacebookException {
         PostUpdate post = new PostUpdate(new URL("http://facebook4j.org"))
@@ -64,25 +80,43 @@ public class Metodos {
                 .description("Facebook4J is a Java library for the Facebook Graph API.");
         facebook.postFeed(post);
     }
-    
+    /**
+     * método para comentar una foto(eliminado de la botonera ya que comentar normal, se puede
+     * desempeñar la misam función
+     * @param id de la foto a comentar
+     * @param comentario a decir
+     * @throws FacebookException 
+     */
     public void ComentPhoto(String id, String comentario) throws FacebookException {
         facebook.commentPhoto(id,comentario);
     }
-    
+    /**
+     * método para dejar un comentario en un estado, aunque tabién vale para fotos
+     * @param id del estado
+     * @param comentario a decir
+     * @throws FacebookException 
+     */
     public void comentarEstado(String id, String comentario) throws FacebookException {
         facebook.commentPost(id, comentario);
     }
-    
+    /**
+     * método para poder ver comentarios de un post
+     * @param id del post
+     * @throws FacebookException 
+     */
     public void verComentarios(String id) throws FacebookException {
         ResponseList<Comment> comentarios = facebook.getPhotoComments(id);
         for (int i = 0; i < comentarios.size(); i++) {
             JOptionPane.showMessageDialog(null,comentarios.get(i).getMessage());
-            //System.out.println(comentarios.get(i).getMessage());
-
+            
         }
 
     }
-    
+    /**
+     * método para dar like a un post
+     * @param id del post
+     * @throws FacebookException 
+     */
      public void like(String id) throws FacebookException {
         facebook.likePost(id);
 
