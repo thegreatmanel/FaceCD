@@ -68,6 +68,11 @@ public class Interfaz extends javax.swing.JFrame {
         jButton4.setText("Comentar foto");
 
         jButton5.setText("Buscar persona");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(102, 102, 102));
         jButton6.setText("Dar me gusta");
@@ -168,6 +173,14 @@ public class Interfaz extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+            m.buscarPersoa(jTextField2.getText());
+        } catch (FacebookException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -41,5 +41,14 @@ public class Metodos {
         User user = facebook.getMe();
         JOptionPane.showMessageDialog(null, "Mi nombre: \n" + user.getName());
     }
+    
+    public void buscarPersoa(String nombre) throws FacebookException {
+      String ac="";
+        ResponseList<User> results = facebook.searchUsers(nombre);
+        //System.out.println("Busqueda de personas con nombre :" + nombre);
+        for (int i = 0; i < results.size(); i++) {
+             ac=ac+(results.get(i).getName())+"\n";
+        }JOptionPane.showMessageDialog(null,"Busqueda de personas con nombre:\n"+ nombre+"\n"+ac);
+    }
 
 }
