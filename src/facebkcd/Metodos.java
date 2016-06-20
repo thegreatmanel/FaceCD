@@ -38,7 +38,7 @@ public class Metodos {
     }
 /**
  * método para ver el usuario con el que tienes iniciado
- * @throws FacebookException 
+ * @throws FacebookException Excepcion de facebook
  */
     public void miUsuario() throws FacebookException {
         User user = facebook.getMe();
@@ -47,7 +47,7 @@ public class Metodos {
 /**
  * método para buscar persona
  * @param nombre de la persona a buscar
- * @throws FacebookException 
+ * @throws FacebookException Excepcion de facebook
  */
     public void buscarPersoa(String nombre) throws FacebookException {
         String ac = "";
@@ -60,7 +60,7 @@ public class Metodos {
 /**
  * método para publicar un estado
  * @param comentario que quieres publicar
- * @throws FacebookException 
+ * @throws FacebookException Excepcion de facebook
  */
     public void publicarEstado(String comentario) throws FacebookException {
         facebook.postStatusMessage(comentario);
@@ -68,8 +68,8 @@ public class Metodos {
     /**
      * método para subir una foto
      * @param rutaImagen o url de la imagen que quieres subir
-     * @throws MalformedURLException
-     * @throws FacebookException 
+     * @throws MalformedURLException Excepcion de URL mal formada
+     * @throws FacebookException Excepcion de facebook
      */
 
     public void publicarFoto(String rutaImagen) throws MalformedURLException, FacebookException {
@@ -85,7 +85,7 @@ public class Metodos {
      * desempeñar la misam función
      * @param id de la foto a comentar
      * @param comentario a decir
-     * @throws FacebookException 
+     * @throws FacebookException Excepcion de facebook
      */
     public void ComentPhoto(String id, String comentario) throws FacebookException {
         facebook.commentPhoto(id,comentario);
@@ -94,7 +94,7 @@ public class Metodos {
      * método para dejar un comentario en un estado, aunque tabién vale para fotos
      * @param id del estado
      * @param comentario a decir
-     * @throws FacebookException 
+     * @throws FacebookException Excepcion de facebook
      */
     public void comentarEstado(String id, String comentario) throws FacebookException {
         facebook.commentPost(id, comentario);
@@ -102,7 +102,7 @@ public class Metodos {
     /**
      * método para poder ver comentarios de un post
      * @param id del post
-     * @throws FacebookException 
+     * @throws FacebookException Excepcion de facebook
      */
     public void verComentarios(String id) throws FacebookException {
         ResponseList<Comment> comentarios = facebook.getPhotoComments(id);
@@ -115,7 +115,7 @@ public class Metodos {
     /**
      * método para dar like a un post
      * @param id del post
-     * @throws FacebookException 
+     * @throws FacebookException Excepcion de facebook
      */
      public void like(String id) throws FacebookException {
         facebook.likePost(id);
