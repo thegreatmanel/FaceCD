@@ -72,5 +72,15 @@ public class Metodos {
     public void comentarEstado(String id, String comentario) throws FacebookException {
         facebook.commentPost(id, comentario);
     }
+    
+    public void verComentarios(String id) throws FacebookException {
+        ResponseList<Comment> comentarios = facebook.getPhotoComments(id);
+        for (int i = 0; i < comentarios.size(); i++) {
+            JOptionPane.showMessageDialog(null,comentarios.get(i).getMessage());
+            //System.out.println(comentarios.get(i).getMessage());
+
+        }
+
+    }
 
 }

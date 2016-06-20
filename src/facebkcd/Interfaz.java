@@ -213,7 +213,11 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        try {
+            m.verComentarios(jTextField1.getText());
+        } catch (FacebookException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
