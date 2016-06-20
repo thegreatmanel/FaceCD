@@ -13,6 +13,7 @@ import facebook4j.PostUpdate;
 import facebook4j.ResponseList;
 import facebook4j.User;
 import facebook4j.auth.AccessToken;
+import facebook4j.conf.ConfigurationBuilder;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.JOptionPane;
@@ -23,10 +24,18 @@ import javax.swing.JOptionPane;
  */
 public class Metodos {
 
-    Facebook facebook = new FacebookFactory().getInstance(new AccessToken("EAA"
-            + "CEdEose0cBAPrrsiZBAvdqsMTQMRi0JUUo12Yl6qzkaf8y6RYqu5uI62QX8qEm2"
-            + "ZBw45RuQ9oJaH3xQghMoEYHNW9leaezxivEPLKiPpaz74xaNEVZBZCZAeWwx9bv"
-            + "INBY1CutN4S0NZBojpd15XupO6nxuWvYhWnObXlfRCKQZDZD"));
+    Facebook facebook;
+
+    public Metodos() {
+        ConfigurationBuilder cb = new ConfigurationBuilder();
+        cb.setDebugEnabled(true)
+                .setOAuthAppId("1602463666748241")
+                .setOAuthAppSecret("cefb5f40109c7ce4ebf0fe790b5f616e")
+                .setOAuthAccessToken("EAAWGvIugi90BABU3ZAwuJwhOUdkZCbnAwKxjhZArjcPQPZBd7VVZB0hPzHEQfUZCGV0IynUZCwcXSceYc8Wc95PoIKdZCC0wZBNbdgZAOS7NbXqhIOgfW9NVVm1mrnWizmNiXXhNiKp7VZB3aUrVVoVrM4L9GuZBj6snSwfQdHrurSomyAZDZD")
+                .setOAuthPermissions("email,publish_stream,...");
+        FacebookFactory ff = new FacebookFactory(cb.build());
+        facebook = ff.getInstance();
+    }
 
     public void miUsuario() throws FacebookException {
         User user = facebook.getMe();
