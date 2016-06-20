@@ -41,18 +41,32 @@ public class Metodos {
         User user = facebook.getMe();
         JOptionPane.showMessageDialog(null, "Mi nombre: \n" + user.getName());
     }
-    
+
     public void buscarPersoa(String nombre) throws FacebookException {
-      String ac="";
+        String ac = "";
         ResponseList<User> results = facebook.searchUsers(nombre);
         //System.out.println("Busqueda de personas con nombre :" + nombre);
         for (int i = 0; i < results.size(); i++) {
-             ac=ac+(results.get(i).getName())+"\n";
-        }JOptionPane.showMessageDialog(null,"Busqueda de personas con nombre:\n"+ nombre+"\n"+ac);
+            ac = ac + (results.get(i).getName()) + "\n";
+        }
+        JOptionPane.showMessageDialog(null, "Busqueda de personas con nombre:\n" + nombre + "\n" + ac);
     }
-    
+
     public void publicarEstado(String comentario) throws FacebookException {
         facebook.postStatusMessage(comentario);
+    }
+
+    public void publicarFoto(String rutaImagen) throws MalformedURLException, FacebookException {
+        PostUpdate post = new PostUpdate(new URL("http://facebook4j.org"))
+                .picture(new URL(rutaImagen))
+                .name("Facebook4J - A Java library for the Facebook Graph API")
+                .caption("facebook4j.org")
+                .description("Facebook4J is a Java library for the Facebook Graph API.");
+        facebook.postFeed(post);
+    }
+    
+    public void ComentPhoto(String id, String comentario) throws FacebookException {
+        facebook.commentPhoto(id,comentario);
     }
 
 }
