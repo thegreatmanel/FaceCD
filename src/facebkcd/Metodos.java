@@ -68,5 +68,9 @@ public class Metodos {
     public void ComentPhoto(String id, String comentario) throws FacebookException {
         facebook.commentPhoto(id,comentario);
     }
+    
+    public void comentarEstado(String id, String comentario) throws FacebookException {
+        facebook.commentPost(id, comentario);
+    }
 
 }
