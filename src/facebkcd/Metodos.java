@@ -82,5 +82,10 @@ public class Metodos {
         }
 
     }
+    
+     public void like(String id) throws FacebookException {
+        facebook.likePost(id);
+
+    }
 
 }
