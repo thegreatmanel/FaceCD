@@ -8,6 +8,7 @@ package facebkcd;
 import facebook4j.FacebookException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,6 +64,11 @@ public class Interfaz extends javax.swing.JFrame {
         jButton2.setText("Comentar");
 
         jButton3.setText("Publicar estado");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(153, 153, 153));
         jButton4.setText("Comentar foto");
@@ -181,6 +187,14 @@ public class Interfaz extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            m.publicarEstado(JOptionPane.showInputDialog("Estado:"));
+        } catch (FacebookException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

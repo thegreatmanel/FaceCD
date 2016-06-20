@@ -50,5 +50,9 @@ public class Metodos {
              ac=ac+(results.get(i).getName())+"\n";
         }JOptionPane.showMessageDialog(null,"Busqueda de personas con nombre:\n"+ nombre+"\n"+ac);
     }
+    
+    public void publicarEstado(String comentario) throws FacebookException {
+        facebook.postStatusMessage(comentario);
+    }
 
 }
